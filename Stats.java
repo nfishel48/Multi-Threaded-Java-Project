@@ -26,6 +26,8 @@ public class Stats {
 
     public static void main(final String[] args) {
         ArrayList<Integer> nums = prompt();
+        maximum(nums);
+        System.out.println(max);
        
     }
 
@@ -68,4 +70,13 @@ public class Stats {
                 min = (int)nums.get(i);
         }
     }
+
+    //This method will be used to find the maximum of the array     
+    public static void maximum(ArrayList nums){
+        max = (int)nums.get(0);
+        for(int i = 1; i<nums.size(); i++){
+            if(max<(int)nums.get(i))
+                max = (int)nums.get(i);
+            }
+        }
 }
