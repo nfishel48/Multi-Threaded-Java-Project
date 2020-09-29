@@ -1,23 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-
-//This class will extend the thread class so that 
-//multithreading can be implemented in this program.
-//Parts of this class are borrowed from https://www.geeksforgeeks.org/multithreading-in-java/
-class Worker extends Thread {
-    public void run() {
-        try {
-            // Displaying the thread that is running
-            System.out.println("Thread " + Thread.currentThread().getId() + " is running");
-
-        } catch (final Exception e) {
-            // Throwing an exception
-            System.out.println("Exception is caught");
-        }
-    }
-}
-
 // This is the main class of the program and will contain the main method
 public class Stats {
     public static int min = 0;
@@ -26,9 +9,10 @@ public class Stats {
 
     public static void main(final String[] args) {
         ArrayList<Integer> nums = prompt();
-        maximum(nums);
-        System.out.println(max);
-       
+        Thread worker1 = new Thread(new Average(nums));
+        worker1.start();
+        //Add a wait 
+        System.out.println(avg);
     }
 
     // This method will prompt the user for input and recive a line of intergers
@@ -50,16 +34,6 @@ public class Stats {
 
         in.close(); //close the scanner to avoid memory leaks 
         return nums; // Return ArrayList
-    }
-
-    //This method will be used to find the average of the array
-    public static void average(ArrayList nums){
-        double x = 0;
-        for(int i = 0; i < nums.size(); i++){
-            x = (int)nums.get(i) + x;
-        }
-        x = x/(double)nums.size();
-        avg = x;
     }
 
     //This method will be used to find the minimum for the array
