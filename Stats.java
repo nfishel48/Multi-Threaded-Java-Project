@@ -26,8 +26,7 @@ public class Stats {
 
     public static void main(final String[] args) {
         ArrayList<Integer> nums = prompt();
-        average(nums);
-        System.out.println(avg);
+       
     }
 
     // This method will prompt the user for input and recive a line of intergers
@@ -59,5 +58,14 @@ public class Stats {
         }
         x = x/(double)nums.size();
         avg = x;
+    }
+
+    //This method will be used to find the minimum for the array
+    public static void minimum(ArrayList nums){
+        min = (int)nums.get(0);
+        for(int i = 1; i<nums.size(); i++){
+           if(min>(int)nums.get(i))
+                min = (int)nums.get(i);
+        }
     }
 }
