@@ -35,17 +35,16 @@ public class Stats {
 
         //Create a new array list object
         ArrayList<Integer> nums = new ArrayList<Integer>();
-        //Create a counter varible 
-        int i = 0;
-
-        //While loop to check for Intergers in the input and add them to the array list.
-        while (in.hasNextInt()) {
-            if (in.hasNextInt())
-                nums.add(i, in.nextInt());
-            else 
-                in.next();
-        }
+       
+        String input = in.nextLine();    // get the entire line after the prompt 
+        String[] numbers = input.split(" "); // split by spaces
         
+        //loop through array to convert strings too ints
+        for(int i = 0; i<= numbers.length-1; i++){
+            nums.add(i, Integer.parseInt(numbers[i]));
+        }
+
+        //close the scanner to avoid memory leaks 
         in.close();
         return nums;
     }
