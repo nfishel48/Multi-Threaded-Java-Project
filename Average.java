@@ -15,7 +15,6 @@ class Average implements Runnable{
                 }
                 x = x/(double)nums.size();
                 Stats.avg = x;
-                System.out.println(Stats.avg+"Thread");
             }
         
         catch (final Exception e) {
